@@ -1,4 +1,4 @@
 com_terebinth
-=============
+===========
 
-Terebinth Component
+See https://github.com/nwheeler/terebinth
