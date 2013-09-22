@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
 
 // set some global property
 $document = JFactory::getDocument();
-$document->addStyleDeclaration('.icon-48-varnish {background-image: url(../media/com_terebinth/images/varnish-48x48.png);}');
+$document->addStyleDeclaration('.icon-48-terebinth {background-image: url(../media/com_terebinth/images/terebinth-48x48.png);}');
 
 // import joomla controller library
 jimport('joomla.application.component.controller');

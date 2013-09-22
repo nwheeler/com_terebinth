@@ -41,7 +41,7 @@
 
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu img="../media/com_terebinth/images/varnish-16x16.png">COM_TEREBINTH</menu>
+		<menu img="../media/com_terebinth/images/terebinth-16x16.png">COM_TEREBINTH</menu>
 		<!-- Administration Main File Copy Section -->
 		<!-- Note the folder attribute: This attribute describes the folder
 			to copy FROM in the package to install therefore files copied
