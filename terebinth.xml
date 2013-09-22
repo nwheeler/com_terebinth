@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.6.0" method="upgrade">
 
-	<name>Terebinth Component</name>
+	<name>com_terebinth</name>
 	<!-- The following elements are optional and free of formatting conttraints -->
 	<creationDate>August 2013</creationDate>
 	<author>Nicholas Wheeler</author>
