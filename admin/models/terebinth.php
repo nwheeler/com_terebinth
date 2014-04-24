@@ -87,7 +87,7 @@ class TerebinthModelTerebinth extends JModelAdmin
         JArrayHelper::toInteger($pks);
 
         // Access checks.
-        if (!$user->authorise('core.admin', 'com_terebinth')) {
+        if (!$user->authorise('core.edit', 'com_terebinth')) {
             $pks = array();
             $this->setError(JText::_('JLIB_APPLICATION_ERROR_EDIT_NOT_PERMITTED'));
             return false;
