@@ -20,4 +20,8 @@ jimport('joomla.application.component.controllerform');
  */
 class TerebinthControllerTerebinth extends JControllerForm
 {
+    function __construct($config = array()) {
+      $this->view_list = 'terebinthes';
+      parent::__construct($config);
+    }
 }
