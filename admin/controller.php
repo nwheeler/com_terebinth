@@ -17,7 +17,7 @@ jimport('joomla.application.component.controller');
 /**
  * General Controller of Terebinth component
  */
-class TerebinthController extends JController
+class TerebinthController extends JControllerLegacy
 {
 	/**
 	 * display task

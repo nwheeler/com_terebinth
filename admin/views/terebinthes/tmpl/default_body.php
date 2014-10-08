@@ -11,8 +11,11 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted Access');
 ?>
-<?php foreach($this->items as $i => $item): ?>
-	<tr class="row<?php echo $i % 2; ?>">
+<?php if (!empty($this->items)) : ?>
+  <?php foreach($this->items as $i => $item) :
+    $link = JRoute::_('index.php?option=com_terebinth&task=terebinth.edit&id=' . $item->id);
+  ?>
+  <tr>
 		<td>
 			<?php echo $item->id; ?>
 		</td>
@@ -20,10 +23,10 @@ defined('_JEXEC') or die('Restricted Access');
 			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 		</td>
 		<td>
-			<a href="<?php echo JRoute::_('index.php?option=com_terebinth&task=terebinth.edit&id=' . $item->id); ?>">
+			<a href="<?php echo $link; ?>" title="<?php echo JText::('COM_TEREBINTH_EDIT_TEREBINTH'); ?>">
 				<?php echo $item->terebinth_host; ?>
 			</a>
 		</td>
 	</tr>
-<?php endforeach; ?>
-
+  <?php endforeach; ?>
+<?php endif; ?>

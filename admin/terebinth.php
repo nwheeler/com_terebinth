@@ -20,7 +20,7 @@ $document->addStyleDeclaration('.icon-48-terebinth {background-image: url(../med
 jimport('joomla.application.component.controller');
 
 // Get an instance of the controller prefixed by Terebinth
-$controller = JController::getInstance('Terebinth');
+$controller = JControllerLegacy::getInstance('Terebinth');
 
 // Perform the Request task
 $controller->execute(JRequest::getCmd('task'));

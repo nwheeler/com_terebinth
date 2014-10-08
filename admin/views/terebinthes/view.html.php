@@ -18,7 +18,7 @@ jimport('joomla.application.component.view');
 /**
  * Terebinthes View
  */
-class TerebinthViewTerebinthes extends JView
+class TerebinthViewTerebinthes extends JViewLegacy
 {
 	/**
 	 * Terebinthes view display method
@@ -57,8 +57,8 @@ class TerebinthViewTerebinthes extends JView
 	{
 		JToolBarHelper::title(JText::_('COM_TEREBINTH_MANAGER_TEREBINTHES'), 'terebinth');
 		JToolBarHelper::deleteList('', 'terebinthes.delete', 'JTOOLBAR_DELETE');
-		JToolBarHelper::editListX('terebinth.edit');
-		JToolBarHelper::addNewX('terebinth.add');
+		JToolBarHelper::editList('terebinth.edit');
+		JToolBarHelper::addNew('terebinth.add');
 	}
 	/**
 	 * Method to set up the document properties

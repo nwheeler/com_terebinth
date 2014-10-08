@@ -22,4 +22,3 @@ defined('_JEXEC') or die('Restricted Access');
 		<?php echo JText::_('COM_TEREBINTH_TEREBINTH_HEADING_TEREBINTH_HOST'); ?>
 	</th>
 </tr>
-
