@@ -47,11 +47,13 @@ class TerebinthViewTerebinth extends JViewLegacy
 		// Set the toolbar
 		$this->addToolBar();
 
+
 		// Display the template
 		parent::display($tpl);
 
     // Set the document
     $this->setDocument();
+
 	}
 
 	/**
