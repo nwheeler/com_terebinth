@@ -23,7 +23,7 @@ defined('_JEXEC') or die('Restricted Access');
 			<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 		</td>
 		<td>
-			<a href="<?php echo $link; ?>" title="<?php echo JText::('COM_TEREBINTH_EDIT_TEREBINTH'); ?>">
+			<a href="<?php echo $link; ?>" title="<?php echo JText::_('COM_TEREBINTH_EDIT_TEREBINTH'); ?>">
 				<?php echo $item->terebinth_host; ?>
 			</a>
 		</td>
