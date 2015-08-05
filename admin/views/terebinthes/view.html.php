@@ -30,6 +30,9 @@ class TerebinthViewTerebinthes extends JViewLegacy
 		$items = $this->get('Items');
 		$pagination = $this->get('Pagination');
 
+    // ACL support
+    $this->canDo = Terebinth::getActions();
+
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) 
 		{
@@ -39,6 +42,7 @@ class TerebinthViewTerebinthes extends JViewLegacy
 		// Assign data to the view
 		$this->items = $items;
 		$this->pagination = $pagination;
+
 
 		// Set the toolbar
 		$this->addToolBar();
@@ -56,9 +60,23 @@ class TerebinthViewTerebinthes extends JViewLegacy
 	protected function addToolBar() 
 	{
 		JToolBarHelper::title(JText::_('COM_TEREBINTH_MANAGER_TEREBINTHES'), 'terebinth');
-		JToolBarHelper::deleteList('', 'terebinthes.delete', 'JTOOLBAR_DELETE');
-		JToolBarHelper::editList('terebinth.edit');
-		JToolBarHelper::addNew('terebinth.add');
+    if ($this->canDo->get('core.delete'))
+    {
+		  JToolBarHelper::deleteList('', 'terebinthes.delete', 'JTOOLBAR_DELETE');
+    }
+    if ($this->canDo->get('core.edit'))
+    {
+    	JToolBarHelper::editList('terebinth.edit');
+    }
+    if ($this->canDo->get('core.create'))
+    {
+		  JToolBarHelper::addNew('terebinth.add');
+    }
+    if ($this->canDo->get('core.admin'))
+    {
+      JToolBarHelper::divider();
+      JToolBarHelper::preferences('com_terebinth');
+    }
 	}
 	/**
 	 * Method to set up the document properties

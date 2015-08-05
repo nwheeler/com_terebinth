@@ -19,6 +19,8 @@ $document->addStyleDeclaration('.icon-48-terebinth {background-image: url(../med
 // import joomla controller library
 jimport('joomla.application.component.controller');
 
+JLoader::register('Terebinth', JPATH_COMPONENT . '/helpers/terebinth.php');
+
 // Get an instance of the controller prefixed by Terebinth
 $controller = JControllerLegacy::getInstance('Terebinth');
 

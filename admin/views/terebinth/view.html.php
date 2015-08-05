@@ -24,7 +24,10 @@ class TerebinthViewTerebinth extends JViewLegacy
 	 * display method of Terebinth view
 	 * @return void
 	 */
+
+  protected $canDo;
   protected $form = null;
+  protected $item;
 
 	public function display($tpl = null) 
 	{
@@ -32,6 +35,8 @@ class TerebinthViewTerebinth extends JViewLegacy
 		$form = $this->get('Form');
 		$item = $this->get('Item');
 		$script = $this->get('Script');
+
+    $this->canDo = Terebinth::getActions($item->id);
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) 
@@ -47,13 +52,11 @@ class TerebinthViewTerebinth extends JViewLegacy
 		// Set the toolbar
 		$this->addToolBar();
 
-
 		// Display the template
 		parent::display($tpl);
 
-    // Set the document
-    $this->setDocument();
-
+		// Set the document
+		$this->setDocument();
 	}
 
 	/**
@@ -66,19 +69,23 @@ class TerebinthViewTerebinth extends JViewLegacy
     // Hide Joomla Administrator Main Menu
     $input->set('hidemainmenu', true);
 
-    $isNew = ($this->item->id == 0);
+		$isNew = ($this->item->id == 0);
     if ($isNew)
     {
       $title = JText::_('COM_TEREBINTH_MANAGER_TEREBINTH_NEW');
-    }
-    else
-    {
+      if ($this->canDo->get('core.create'))
+      {
+        JToolBarHelper::save('terebinth.save');
+      }
+    } else {
       $title = JText::_('COM_TEREBINTH_MANAGER_TEREBINTH_EDIT');
+      if ($this->canDo->get('core.edit'))
+      {
+        JToolBarHelper::save('terebinth.save');
+      }
     }
-
     JToolBarHelper::title($title, 'terebinth');
-    JToolBarHelper::save('terebinth.save');
-    JToolBarHelper::cancel('terebinth.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
+		JToolBarHelper::cancel('terebinth.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 	/**
 	 * Method to set up the document properties
