@@ -24,12 +24,18 @@ class TerebinthViewTerebinth extends JView
 	 * display method of Terebinth view
 	 * @return void
 	 */
+
+  protected $canDo;
+  protected $item;
+
 	public function display($tpl = null) 
 	{
 		// get the Data
 		$form = $this->get('Form');
 		$item = $this->get('Item');
 		$script = $this->get('Script');
+
+    $this->canDo = Terebinth::getActions($this->item->id);
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) 
@@ -60,7 +66,18 @@ class TerebinthViewTerebinth extends JView
 		JRequest::setVar('hidemainmenu', true);
 		$isNew = ($this->item->id == 0);
 		JToolBarHelper::title($isNew ? JText::_('COM_TEREBINTH_MANAGER_TEREBINTH_NEW') : JText::_('COM_TEREBINTH_MANAGER_TEREBINTH_EDIT'), 'terebinth');
-		JToolBarHelper::save('terebinth.save');
+    if ($isNew)
+    {
+      if ($this->canDo->get('core.create'))
+      {
+        JToolBarHelper::save('terebinth.save');
+      }
+    } else {
+      if ($this->canDo->get('core.edit'))
+      {
+        JToolBarHelper::save('terebinth.save');
+      }
+    }
 		JToolBarHelper::cancel('terebinth.cancel', $isNew ? 'JTOOLBAR_CANCEL' : 'JTOOLBAR_CLOSE');
 	}
 	/**

@@ -15,6 +15,23 @@ defined('_JEXEC') or die('Restricted access');
 JModelLegacy::addIncludePath(JPATH_ADMINISTRATOR . '/components/com_terebinth/models', 'TerebinthModel');
 
 class Terebinth {
+
+    public static function getActions($messageId = 0)
+    {
+      $result = new JObject;
+      if (empty($messageId)) {
+        $assetName = 'com_terebinth';
+      } else {
+        $assetName = 'com_terebinth.message.'.(int) $messageId;
+      }
+      $actions = JAccess::getActions('com_terebinth', 'component');
+      foreach ( $actions as $action ) {
+        $result->set($action->name, JFactory::getUser()->authorise($action->name, $assetName));
+      }
+
+      return $result;
+    }
+
     public static function write_debug($filename, $data)
     {
         file_put_contents($filename, $data);

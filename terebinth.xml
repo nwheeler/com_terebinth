@@ -3,13 +3,13 @@
 
 	<name>com_terebinth</name>
 	<!-- The following elements are optional and free of formatting conttraints -->
-	<creationDate>August 2013</creationDate>
+	<creationDate>August 2015</creationDate>
 	<author>Nicholas Wheeler</author>
     <authorEmail>nwheeler@devis.com</authorEmail>
-    <copyright>Copyright (C) 2013 - Nicholas Wheeler. ALl rights reserved.</copyright>
+    <copyright>Copyright (C) 2015 - Nicholas Wheeler. ALl rights reserved.</copyright>
     <license>GNU General Public License version 2 or later</license>
 	<!--  The version string is recorded in the components table -->
-	<version>0.0.1</version>
+	<version>0.0.7</version>
 	<!-- The description is optional and defaults to the name -->
 	<description>COM_TEREBINTH_DESCRIPTION</description>
 
@@ -51,6 +51,8 @@
 			<filename>index.html</filename>
 			<filename>terebinth.php</filename>
 			<filename>controller.php</filename>
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
 			<!-- tables files section -->

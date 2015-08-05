@@ -29,4 +29,24 @@ class TerebinthTableTerebinth extends JTable
 	{
 		parent::__construct('#__terebinth', 'id', $db);
 	}
+
+  public function bind($array, $ignore = '')
+  {
+    if (isset($array['params']) && is_array($array['params']))
+    {
+      $parameter = new JRegistry;
+      $parameter->loadArray($array['params']);
+      $array['params'] = (string)$parameter;
+    }
+
+    // bind the rules
+    if (isset($array['rules']) && is_array($array['rules']))
+    {
+      $rules = new JAccessRules($array['rules']);
+      $this->setRules($rules);
+    }
+
+    return parent::bind($array, $ignore);
+
+  }
 }
